@@ -20,4 +20,6 @@ time: time.c
 
 rp: serverReceivePackets.c
 	gcc -o rp serverReceivePackets.c
-	
+
+clean:
+	rm client server st wp wf time rp 
