@@ -16,7 +16,7 @@
 int main() { 
 	int sockfd; 
 	char buffer[MAXLINE]; 
-	char *hello = "Hello from Surface"; 
+	char *hello = "Hello from client"; 
 	struct sockaddr_in	 servaddr; 
 
 	// Creating socket file descriptor 
