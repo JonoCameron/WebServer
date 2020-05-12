@@ -7,17 +7,20 @@
 #include <sys/socket.h> 
 #include <arpa/inet.h> 
 #include <netinet/in.h> 
+#include <time.h>
 
 #define PORT 8080 
 #define MAXLINE 1024 
 #define IP_ADDRESS "192.168.1.84"
 
 // Driver code 
-int main() { 
-	int sockfd; 
+int main(){ 
+	int sockfd, n, len; 
 	char buffer[MAXLINE]; 
-	char *hello = "Hello from clients"; 
+	char hello[MAXLINE]; 
 	struct sockaddr_in servaddr; 
+	time_t rawtime;
+	struct tm* timeinfo;
 
 	// Creating socket file descriptor 
 	if ((sockfd = socket(AF_INET, SOCK_DGRAM, 0)) < 0){ 
@@ -32,8 +35,18 @@ int main() {
 	servaddr.sin_port = htons(PORT); 
 	servaddr.sin_addr.s_addr = inet_addr(IP_ADDRESS); 
 	
-	int n, len; 
-	
+	time (&rawtime);
+  	timeinfo = localtime(&rawtime);
+    strcpy(hello, "Hello from the client. ");
+  	char* hellotime = asctime(timeinfo);
+
+	printf("%s %s\n", hello, hellotime);
+
+	strcat(hello, hellotime);
+
+    printf("%s\n", hello);
+
+
 	sendto(sockfd, (const char *)hello, strlen(hello), MSG_CONFIRM, (const struct sockaddr *) &servaddr, sizeof(servaddr)); 
 	printf("Hello message sent.\n"); 
 		
