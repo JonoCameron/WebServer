@@ -43,7 +43,7 @@ int main() {
 	int len, n; 
 
 	len = sizeof(cliaddr); //len is value/result 
-    for(i = 0; i < 3; i++){
+    for(int i = 0; i < 3; i++){
         printf("Waiting %d...\n", i);
         n = recvfrom(sockfd, (char *)buffer, MAXLINE, 
                     MSG_WAITALL, ( struct sockaddr *) &cliaddr, 
