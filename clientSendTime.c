@@ -35,7 +35,7 @@ int main(){
 	servaddr.sin_port = htons(PORT); 
 	servaddr.sin_addr.s_addr = inet_addr(IP_ADDRESS); 
 	
-	time (&rawtime);
+	time(&rawtime);
   	timeinfo = localtime(&rawtime);
     strcpy(hello, "Hello from the client. ");
   	char* hellotime = asctime(timeinfo);
