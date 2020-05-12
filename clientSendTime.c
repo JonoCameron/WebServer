@@ -39,13 +39,7 @@ int main(){
   	timeinfo = localtime(&rawtime);
     strcpy(hello, "Hello from the client. ");
   	char* hellotime = asctime(timeinfo);
-
-	printf("%s %s\n", hello, hellotime);
-
 	strcat(hello, hellotime);
-
-    printf("%s\n", hello);
-
 
 	sendto(sockfd, (const char *)hello, strlen(hello), MSG_CONFIRM, (const struct sockaddr *) &servaddr, sizeof(servaddr)); 
 	printf("Hello message sent.\n"); 

@@ -62,10 +62,10 @@ int main() {
             sendto(sockfd, (const char *)hello, strlen(hello), MSG_CONFIRM, (const struct sockaddr *)&cliaddr, len); 
             printf("ACK sent.\n"); 
         }
-        printf("Transmission receieved!!\n");
+        printf("Transmission received!!\n");
 
         fclose(fd);
-        printf("Written to file and file is now closed\n");
+        printf("Written to file and file is now closed.\n\n");
 	}
 
     return 0;
