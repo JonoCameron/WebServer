@@ -13,7 +13,7 @@
 #define IP_ADDRESS "192.168.1.84"
 
 // Driver code 
-int main() { 
+int main(){ 
 	int sockfd; 
 	char buffer[MAXLINE]; 
 	char *hello = "Hello from clients"; 
